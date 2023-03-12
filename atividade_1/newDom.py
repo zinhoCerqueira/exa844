@@ -1,37 +1,41 @@
 import urllib.request
 from bs4 import BeautifulSoup
 import html
+import io
 
-print("<!DOCTYPE html>")
-print("<html lang='en'>")
-print("<head>")
-print("<meta charset='UTF-8' />")
-print(" <meta http-equiv='X-UA-Compatible' content='IE=edge' />")
-print("<meta name='viewport' content='width=device-width, initial-scale=1.0' />")
-print("<title>Atividade 5</title>")
-print("</head>")
-print("<body>")
+soup1 = BeautifulSoup("", "html.parser")
 
-with open("C:\\Users\\jader\\Documents\\GitHub\\exa844\\atividade_1\\seeds.txt") as file:
+html_tag = soup1.new_tag("html")
+soup1.append(html_tag)
+body_tag = soup1.new_tag("body")
+html_tag.append(body_tag)
+
+with open("C:\\Users\\jader\\Documents\\GitHub\\exa844\\atividade_1\\seeds.txt", "r") as file:
   for line in file:
 
     page = urllib.request.urlopen(line)
-
     html = str(page.read().decode('utf-8'))
-
     soup = BeautifulSoup(html, 'lxml')
+    titulo = soup.title.string
+    img = soup.find('img')
 
-    # # print("++++++++++++++++++++++++++++++++++++++") 
-    # for img in soup.find_all('img'):
-    #   # print("src: ", img.attrs.get("src"))
-    #   # print("++++++++++++++++++++++++++++++++++++++")
-    #   # print("")
-    #   break
-
-    for img in soup.find_all('img'):
-      img = img.attrs.get("src")
-      if "https://" in img:
-        print("<img width='500px' src='" + img + "'/>")
+    if img is not None:
+      if "https://" in img.attrs.get("src"):
+        src1 = img.attrs.get("src")
       else:
-        print(f"<img width='500px' src='{line[:-1]+img}'/>")
+        src1 = line[:-1]+img.attrs.get("src")
+
+      print(titulo)
+      print(src1)
+      print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-")
+
+      title_tag = soup1.new_tag("h1")
+      title_tag.string = titulo
+      body_tag.append(title_tag)
+    
+      # Crie uma tag 'img' para a imagem e adicione-a ao objeto 'body'
+      img_tag = soup1.new_tag("img", src=src1)
+      body_tag.append(img_tag)
+      with io.open("galera.html", "w", encoding="utf-8") as file:
+        file.write(soup1.prettify())
 
