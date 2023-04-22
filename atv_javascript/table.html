@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tabela Dinâmica</title>
+  </head>
+  <body>
+    <table id="tabela"></table>
+    <script>
+      const tabela = document.querySelector("#tabela");
+      const dados = [
+        { nome: "João", idade: 25 },
+        { nome: "Maria", idade: 30 },
+        { nome: "Pedro", idade: 40 },
+      ];
+      for (let i = 0; i < dados.length; i++) {
+        const linha = document.createElement("tr");
+        const colunaNome = document.createElement("td");
+        const colunaIdade = document.createElement("td");
+        colunaNome.textContent = dados[i].nome;
+        colunaIdade.textContent = dados[i].idade;
+        linha.appendChild(colunaNome);
+        linha.appendChild(colunaIdade);
+        tabela.appendChild(linha);
+      }
+    </script>
+  </body>
+</html>
