@@ -32,7 +32,7 @@ def checaEstado():
                 print(linhas[0])
                 if(divsPai):
                     print("A página tem dados.")   
-                    with open("exa844\programacaoredes\py\lista_BA.txt", "a") as arquivo:
+                    with open("exa844\programacaoredes\py\listacerta_BA_.txt", "a") as arquivo:
                         localCerto = linhas.pop(0)
                         arquivo.writelines(localCerto)
                     with open("exa844\programacaoredes\py\lista_BA.txt", "w") as arquivo:
