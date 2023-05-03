@@ -1,0 +1,17 @@
+{
+  "name": "busfinder",
+  "version": "1.0.0",
+  "description": "comecando o projeto final da disciplina exa844 uefs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i src/tailwindcss.css -o src/css/styles.css -- watch"
+  },
+  "author": "z",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2"
+  }
+}

@@ -1,0 +1,74 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.rectangleblue {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 13rem;
+    height: 13rem;
+    background: rgb(2, 19, 251);
+    bottom: 0;
+}
+
+.rectanglegreen {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    position: absolute;
+    width: 13rem;
+    height: 13rem;
+    background: rgb(0, 172, 17);
+}
+
+.rectanglered {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    position: absolute;
+    width: 13rem;
+    height: 13rem;
+    background: rgb(251, 2, 2);
+    right: 0px;
+}
+
+.rectangleyellow {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    position: absolute;
+    width: 13rem;
+    height: 13rem;
+    background: rgb(238, 251, 2);
+    right: 0px;
+    bottom: 0px;
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .rectangleblue,
+    .rectanglegreen,
+    .rectanglered,
+    .rectangleyellow {
+        justify-content: center;
+        text-align: center;
+        position: static;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        width: 100%;
+        height: 100px;
+    }
+}
