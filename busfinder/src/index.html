@@ -5,29 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
+    <div class="w-screen h-screen font-roboto">
 
-    <div class="w-full h-full bg-no-repeat bg-cover bg-left bg-fixed"
-        style="background-image: url('../background/1.jpg');">
-        <div class="flex items-center justify-center h-screen">
-            <div class="w-full md:w-11/12 lg:w-11/12 backdrop-blur-md bg-white/10 rounded-md shadow-2xl p-6 h-5/6">
+        <!-- Primeira barra de itens -->
+        <div class="flex bg-primary w-full h-20 shadow-2xl">
 
-                <div class="flex items-center justify-center h-full">
-                    <div class="flex-1 bg-slate-400 rounded-md shadow-2xl mx-1 h-full">
-1
-                    </div>
-                    <div class="flex-1 bg-slate-400 rounded-md shadow-2xl mx-1 h-full">
-2
-                    </div>
-                    <div class="flex-1 bg-red-400 rounded-md shadow-2xl mx-1 h-full">
-3
-                    </div>
+            <div class="flex w-4/5 flex-col justify-center p-4">
+
+                <h1 class="text-xl font-bold">EasyBus</h1>
+                <p>A sua viagem começa aqui.</p>
+            </div>
+
+            <div class="flex w-1/5 justify-center items-center">
+                <p>OI</p>
+            </div>
+
+        </div>
+
+        <div>
+            <div>
+                <div class="flex justify-center p-6">
+                    <h1 class="text-xl font-bold ">Onde você está ?</h1>
+                </div>
+                <div class="flex justify-center p-6">
+                    <label for="frutas">Selecione uma fruta:</label>
+                    <select id="frutas" name="frutas">
+                        <option value="banana">Banana</option>
+                        <option value="maca">Maçã</option>
+                        <option value="laranja">Laranja</option>
+                    </select>
                 </div>
 
 
             </div>
+
         </div>
 
     </div>
