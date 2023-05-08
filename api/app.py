@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask import Flask, make_response, jsonify, request
-from dados import rotas
+from dadosjsonpy import rotas
 from gevent.pywsgi import WSGIServer
 
 app = Flask(__name__)
