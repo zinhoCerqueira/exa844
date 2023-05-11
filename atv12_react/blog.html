@@ -4,38 +4,48 @@
   <title>My Blog</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <script type="application/javascript">
-    function send(event) {
-      data = {
-        "message": document.getElementById("msg").value,
-        "author": document.getElementById("autor").value
-      };
-      var json_data = JSON.stringify(data);
-
-      var header = {
-        "Cotent-Type": "application/json"
-      };
-
+    window.onload = function() {
       var url = "https://script.google.com/macros/s/AKfycbzBn3sALe1rYjz7Ze-Ik7q9TEVP0I2V3XX7GNcecWP8NvCzGt4yO_RT1OlQp09TE9cU/exec";
+      const tabela = document.getElementById("tabela");
+      while (tabela.rows.length > 0) {
+        tabela.deleteRow(0);
+      }
 
-      fetch(url, {
-        method: "POST",
-        body: json_data,
-        headers: header,
-        mode: "no-cors"
-      });
-    }
+      var ajax = new XMLHttpRequest()
+      ajax.open("GET", url, true);
+      ajax.onload = function () {
+        if (ajax.status === 200) {
+          var jsonObj = JSON.parse(ajax.responseText); //JSON.parse()
+
+          for (let i = 0; i < jsonObj.length; i++) {
+            var linha = tabela.insertRow(-1);
+
+            // definir o valor de cada célula com o valor correspondente do array
+            var autorCell = linha.insertCell(0);
+            autorCell.innerHTML = (jsonObj[i])[0];
+
+            var msgCell = linha.insertCell(1);
+            msgCell.innerHTML = (jsonObj[i])[1];
+
+            var timeCell = linha.insertCell(2);
+            timeCell.innerHTML = (jsonObj[i])[2];
+          }
+
+        }
+
+      }
+      ajax.send();
+    };
   </script>
 </head>
 
 <body>
-  <H4 align = "center">Procure uma mensagem:</H4>
+  <h4 align="center">Procure uma mensagem</h4>
   <form align="center">
-    
-    <input type="text" size=64 name="msg" id="msg"><br><br>
-    <button type="button" onclick="get()">RELOAD</button>
-
-
+    <input type="text" size=64 name="autor" id="autor">
+  
   </form>
+  
   <HR><br>
 
   <table border=1 id="tabela">

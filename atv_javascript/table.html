@@ -1,27 +1,89 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Tabela Dinâmica</title>
-  </head>
-  <body>
-    <table id="tabela"></table>
-    <script>
-      const tabela = document.querySelector("#tabela");
-      const dados = [
-        { nome: "João", idade: 25 },
-        { nome: "Maria", idade: 30 },
-        { nome: "Pedro", idade: 40 },
-      ];
-      for (let i = 0; i < dados.length; i++) {
-        const linha = document.createElement("tr");
-        const colunaNome = document.createElement("td");
-        const colunaIdade = document.createElement("td");
-        colunaNome.textContent = dados[i].nome;
-        colunaIdade.textContent = dados[i].idade;
-        linha.appendChild(colunaNome);
-        linha.appendChild(colunaIdade);
-        tabela.appendChild(linha);
+
+<head>
+  <title>My Blog</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script type="application/javascript">
+    function send(event) {
+      data = {
+        "message": document.getElementById("msg").value,
+        "author": document.getElementById("autor").value
+      };
+      var json_data = JSON.stringify(data);
+
+      var header = {
+        "Cotent-Type": "application/json"
+      };
+
+      var url = "https://script.google.com/macros/s/AKfycbzBn3sALe1rYjz7Ze-Ik7q9TEVP0I2V3XX7GNcecWP8NvCzGt4yO_RT1OlQp09TE9cU/exec";
+
+      fetch(url, {
+        method: "POST",
+        body: json_data,
+        headers: header,
+        mode: "no-cors"
+      });
+    }
+
+    function get(event) {
+      var url = "https://script.google.com/macros/s/AKfycbzBn3sALe1rYjz7Ze-Ik7q9TEVP0I2V3XX7GNcecWP8NvCzGt4yO_RT1OlQp09TE9cU/exec";
+      const tabela = document.getElementById("tabela");
+      while (tabela.rows.length > 1) {
+        tabela.deleteRow(1);
       }
-    </script>
-  </body>
+
+      var ajax = new XMLHttpRequest()
+      ajax.open("GET", url, true);
+      ajax.onload = function () {
+        if (ajax.status === 200) {
+          var jsonObj = JSON.parse(ajax.responseText);
+          var filtro = document.getElementById("msg").value.toLowerCase();
+          var mensagensFiltradas = jsonObj.filter(function (msg) {
+            return msg[1].toLowerCase().includes(filtro);
+          });
+
+          for (let i = 0; i < mensagensFiltradas.length; i++) {
+            var linha = tabela.insertRow(-1);
+
+            var autorCell = linha.insertCell(0);
+            autorCell.innerHTML = mensagensFiltradas[i][0];
+
+            var msgCell = linha.insertCell(1);
+            msgCell.innerHTML = mensagensFiltradas[i][1];
+
+            var timeCell = linha.insertCell(2);
+            timeCell.innerHTML = mensagensFiltradas[i][2];
+          }
+
+        }
+      }
+
+      ajax.send();
+    }
+  </script>
+</head>
+
+<body>
+  <H4 align="center">Procure uma mensagem:</H4>
+  <form align="center">
+    <input type="text" size=64 name="msg" id="msg" oninput="get()"><br><br>
+    <button type="button" onclick="get()">RELOAD</button>
+  </form>
+  <HR><br>
+
+  <table border=1 id="tabela">
+    <tr>
+      <td>Mensagem</td>
+      <td>Autor</td>
+      <td>Time</td>
+    </tr>
+  </table>
+
+  <style>
+    #tabela {
+      width: 100%;
+    }
+  </style>
+</body>
+
 </html>
