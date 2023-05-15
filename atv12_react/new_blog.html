@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      var MSG;
+
+      fetch('https://script.google.com/macros/s/AKfycbzBn3sALe1rYjz7Ze-Ik7q9TEVP0I2V3XX7GNcecWP8NvCzGt4yO_RT1OlQp09TE9cU/exec')
+        .then(response => response.json())
+        .then(data => {
+
+          MSG = data
+          console.log(MSG);
+        })
+        .catch(error => console.error(error));
+
+      console.log(typeof MSG)
+      console.log(MSG)
+    });
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<!-- This setup is not suitable for production. -->
+<!-- Only use it in development! -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react?dev",
+    "react-dom/client": "https://esm.sh/react-dom/client?dev"
+  }
+}
+</script>
+<script type="text/babel" data-type="module">
+  import React, { StrictMode } from 'react';
+  import { createRoot } from 'react-dom/client';
+  import { useState } from 'react';
+
+
+  function SearchBar({ filterText, onFilterTextChange}) {
+    return (
+      <form>
+        <input type="text" value={filterText} placeholder="Search..."
+          onChange={(e) => onFilterTextChange(e.target.value)} />
+      </form>
+    );
+  }
+
+  function FilterableMsgTable({ products }) {
+    const [filterText, setFilterText] = useState('');
+
+    return (
+      <div>
+        <SearchBar filterText={filterText} 
+          onFilterTextChange={setFilterText} />
+        <MsgTable msg={msg} filterText={filterText} />
+      </div>
+    );
+  
+  }
+
+  let App = function App() {
+    return (<>
+      <FilterableMsgTable msg={MSG} />
+    </>)
+  }
+
+  const root = createRoot(document.getElementById('root'));
+  root.render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+</script>
