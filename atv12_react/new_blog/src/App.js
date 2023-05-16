@@ -19,10 +19,10 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(typeof data);
-  console.log(data)
 
-  const msgFiltered = data?.filter((msg) => typeof msg[0] === 'string' && msg[0].startsWith(busca))
+  const msgFiltered = data?.filter((msg) => typeof msg[0] === 'string' && msg[0].startsWith(busca) || msg[1] === 'string' && msg[1].startsWith(busca))
+
+  console.log(msgFiltered);
 
   return (
     <div>
@@ -34,40 +34,6 @@ function App() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-function Table(props) {
-  const rows = props.data.map(item => (
-    <tr key={item.id}>
-      <td>{item.id}</td>
-      <td>{item.name}</td>
-      <td>{item.price}</td>
-    </tr>
-  ));
-
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows}
-      </tbody>
-    </table>
-  );
-}
-
-
 
 
 export default App;
