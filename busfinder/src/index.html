@@ -7,9 +7,15 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="js/index.js"> </script>
+
 </head>
 
 <body>
+
+    <div id="spinner" class="fixed top-0 left-0 w-screen h-screen flex justify-center items-center backdrop-blur-sm bg-white/30">
+        <img src="arq/loading.gif" alt="Loading" />
+    </div>
+
     <div class="w-screen h-screen font-roboto">
 
         <!-- Primeira barra de itens -->
@@ -48,10 +54,11 @@
                         <option selected> Sua cidade</option>
                     </select>
 
-                    <button onclick="myFunction()" id="botao_busca" class="bg-gradient-to-r from-tertiary to-quaternary block w-4/12 m-4 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded"> 
-                        
+                    <button onclick="searchCity()" id="botao_busca"
+                        class="bg-gradient-to-r from-tertiary to-quaternary block w-4/12 m-4 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
+
                         BUSCAR
-                        <i class="fas fa-search text-gray-600"></i> 
+                        <i class="fas fa-search text-gray-600"></i>
                     </button>
 
                 </div>
