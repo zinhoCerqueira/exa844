@@ -31,12 +31,12 @@ function search_rotas() {
 
                 // Criação do elemento <div> com as classes "mt-4" e "flex"
                 var divElement = document.createElement("div");
-                divElement.classList.add("m-4", "flex", "bg-cover", "overflow-hidden",
+                divElement.classList.add("m-4", "bg-cover", "overflow-hidden",
                     "border", "rounded-md", "shadow-lg");
 
                 // Criação do primeiro <div> interno
                 var div1 = document.createElement("div");
-                div1.classList.add("w-1/2", "m-4");
+                div1.classList.add("w-1/2", "m-4" , "border-r", "border-gray-300");
 
                 // Criação dos parágrafos e dos elementos <span> dentro do primeiro <div>
                 var p1 = document.createElement("p");
@@ -110,9 +110,24 @@ function search_rotas() {
                 div2.appendChild(p7);
                 div2.appendChild(p8);
 
+                var divInfo = document.createElement("div");
+                divInfo.classList.add("flex");
+
+                divInfo.appendChild(div1);
+                divInfo.appendChild(div2);
+
                 // Adiciona os dois <div> internos ao elemento principal <div>
-                divElement.appendChild(div1);
-                divElement.appendChild(div2);
+                divElement.appendChild(divInfo);
+
+                //Botão
+                var divButton = document.createElement("div");
+                var button = document.createElement("button");
+                button.classList.add("w-full", "block", "text-secondary", "px-4", "py-2",
+                    "bg-gradient-to-r", "from-tertiary", "to-quaternary"
+                );
+                button.textContent = "Selecione";
+                divButton.appendChild(button);
+                divElement.appendChild(divButton);
 
                 // Insere o elemento principal <div> no documento HTML
                 var ambiente = document.getElementById('ambiente');
