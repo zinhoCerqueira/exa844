@@ -6,7 +6,7 @@ function time_Spinner() {
     var spinner = document.getElementById('spinner');
     setTimeout(function () {
         spinner.style.display = 'none';
-    }, 3000);
+    }, 000);
 }
 
 async function addElementsInSelect() {
@@ -15,7 +15,6 @@ async function addElementsInSelect() {
     fazerRequisicaoAPI(apiUrl)
         .then(data => {
             // Manipular os dados da API
-            // console.log(data);
 
             const select = document.getElementById('my_id');
 
@@ -45,7 +44,6 @@ async function fazerRequisicaoAPI(url) {
 function searchCity() {
     const data = { origem: document.getElementById("my_id").value };
     const url = 'https://api-bus.onrender.com/destino_origens';
-    console.log(document.getElementById("my_id").value);
     time_Spinner();
     const options = {
         method: 'POST',
@@ -56,16 +54,65 @@ function searchCity() {
     };
 
     fetch(url, options)
-    .then(response => response.json())
-    .then(data => {
-      // Processar a resposta JSON retornada pela API
-      console.log(data);
-    })
-    .catch(error => {
-      // Lidar com erros de requisição
-      console.error('Erro:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
 
+            console.log(data);
 
+            const select = document.getElementById('id_destino');
+
+            for (const key in data) {
+                const option = document.createElement('option');
+                option.value = data[key];
+                option.text = data[key];
+                select.appendChild(option);
+            }
+        })
+        .catch(error => {
+            // Lidar com erros de requisição
+            console.error('Erro:', error);
+        });
+
+    const minhaDiv = document.getElementById('destino_div');
+    minhaDiv.style.display = 'block';
+
+    const botao1 = document.getElementById('botao-1');
+    botao1.classList.add('bg-gradient-to-r');
+    botao1.classList.add('from-tertiary');
+    botao1.classList.add('to-quaternary');
+    botao1.disabled = false;
+
+    const border_select = document.getElementById('id_destino');
+    border_select.classList.add('border-tertiary');
+    border_select.classList.add('border-gradient-to-r');
+    border_select.disabled = false;
+
+}
+
+function searchRota() {
+    const data = {
+        local_saida: document.getElementById("my_id").value,
+        local_chegada: document.getElementById("id_destino").value
+    };
+    const url = 'https://api-bus.onrender.com/rotacompleta_origemdestino';
+
+    time_Spinner();
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    };
+
+    fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            // Lidar com erros de requisição
+            console.error('Erro:', error);
+        });
 
 }

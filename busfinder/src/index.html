@@ -7,32 +7,45 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="js/index.js"> </script>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&family=Pacifico&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <div id="spinner" class="fixed top-0 left-0 w-screen h-screen flex justify-center items-center backdrop-blur-sm bg-white/30">
+    <div id="spinner"
+        class="fixed top-0 left-0 w-screen h-screen flex justify-center items-center backdrop-blur-sm bg-white/30">
         <img src="arq/loading.gif" alt="Loading" />
     </div>
 
     <div class="w-screen h-screen font-roboto">
 
         <!-- Primeira barra de itens -->
-        <div class="flex bg-gradient-to-r from-tertiary to-quaternary w-full h-14">
+        <div class=" flex bg-gradient-to-r from-tertiary to-quaternary w-full h-14">
 
-            <div class="flex h-full w-5/6 flex-col  justify-center p-4">
-                <h1 class="text-xl font-bold">EasyBus</h1>
-                <p>A sua viagem começa aqui.</p>
+            <div class="h-full w-5/6 flex relative">
+                <div class="absolute bottom-0 ml-6 flex">
+                    <p class="font-Lato text-2xl text-secondary">Easy</p>
+                    <p class="font-Berkshire text-4xl text-secondary">Bus</p>
+                </div>
+
+
+
             </div>
 
             <div class="flex h-full w-1/6 justify-center items-center">
-                <p>O</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-secondary">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+                  
             </div>
         </div>
 
         <!-- Efeito de wave -->
-        <div class="bg-gradient-to-r from-tertiary to-quaternary m-0 w-full">
+        <div class="bg-gradient-to-r from-tertiary to-quaternary m-0 w-full relative">
+            <p class="absolute top-0 ml-6 font-Lato text-lg text-secondary">A sua viagem começa aqui</p>
             <svg class="m-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#F8F8FF" fill-opacity="1"
                     d="M0,192L60,208C120,224,240,256,360,250.7C480,245,600,203,720,202.7C840,203,960,245,1080,256C1200,267,1320,245,1380,234.7L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
@@ -47,7 +60,7 @@
             <div class="flex items-center justify-center w-full ">
                 <div class="flex flex-col items-center w-full">
 
-                    <label for="countries" class=" m-4 block text-sm font-medium text-gray-900">Onde você está ?</label>
+                    <label for="countries" class=" mt-20 block text-gray-900 font-Lato text-base">Onde você está ?</label>
 
                     <select id="my_id"
                         class=" m-4 w-10/12 text-gray-900 text-sm rounded-lg p-2.5 border-gradient-to-r border-2 border-tertiary bg-secondary">
@@ -55,7 +68,7 @@
                     </select>
 
                     <button onclick="searchCity()" id="botao_busca"
-                        class="bg-gradient-to-r from-tertiary to-quaternary block w-4/12 m-4 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
+                        class="bg-gradient-to-r from-tertiary to-quaternary block w-4/12 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
 
                         BUSCAR
                         <i class="fas fa-search text-gray-600"></i>
@@ -63,32 +76,31 @@
 
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
         </div>
 
         <!-- Terceira grande DIV da tela -->
-        <div class="bg-secondary h-2/5">
-            <div class="flex justify-center p-6">
-                <h1 class="text-xl font-bold ">Onde você está ?</h1>
-            </div>
-            <div class="flex justify-center p-6">
-                <label for="frutas">Selecione uma fruta:</label>
-                <select id="frutas" name="frutas">
-                    <option value="banana">Banana</option>
-                    <option value="maca">Maçã</option>
-                    <option value="laranja">Laranja</option>
-                </select>
-            </div>
+        <div id="destino_div" class="bg-secondary h-2/5">
 
+
+            <div class="flex items-center w-full ">
+                <div class="flex flex-col items-center w-full">
+
+                    <label for="countries" class=" mt-4 block font-Lato text-base">Onde você está ?</label>
+
+                    <select disabled id="id_destino"
+                        class="m-4  w-10/12 text-gray-900 text-sm rounded-lg p-2.5 border-2 bg-secondary">
+                        <option selected> Sua cidade</option>
+                    </select>
+
+                    <button disabled onclick="searchRota()" id="botao-1"
+                        class="bg-gray-600 m-4 block w-4/12 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
+
+                        BUSCAR
+                        <i class="fas fa-search text-gray-600"></i>
+                    </button>
+
+                </div>
+            </div>
         </div>
 
     </div>

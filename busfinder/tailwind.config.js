@@ -4,6 +4,9 @@ module.exports = {
   theme: {
     fontFamily: {
       roboto:['Roboto', 'sans-serif'],
+      pacifico:['Pacifico', 'cursive'],
+      Lato:['Lato', 'sans-serif'],
+      Berkshire: ['Berkshire Swash', 'cursive'] 
     },
     extend: {
       colors:{
