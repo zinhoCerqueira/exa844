@@ -73,8 +73,6 @@ function searchCity() {
             console.error('Erro:', error);
         });
 
-    const minhaDiv = document.getElementById('destino_div');
-    minhaDiv.style.display = 'block';
 
     const botao1 = document.getElementById('botao-1');
     botao1.classList.add('bg-gradient-to-r');
@@ -94,25 +92,12 @@ function searchRota() {
         local_saida: document.getElementById("my_id").value,
         local_chegada: document.getElementById("id_destino").value
     };
-    const url = 'https://api-bus.onrender.com/rotacompleta_origemdestino';
+    
 
     time_Spinner();
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    };
 
-    fetch(url, options)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            // Lidar com erros de requisição
-            console.error('Erro:', error);
-        });
+    var dadosJSON = JSON.stringify(data);
+    sessionStorage.setItem('local_data', dadosJSON);
+    window.location.href = 'rotas.html';
 
 }

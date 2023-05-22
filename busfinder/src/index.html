@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="js/index.js"> </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&family=Pacifico&display=swap"
         rel="stylesheet">
+    <title>EasyBus</title>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
         </div>
 
         <!-- Segunda Grande Div da tela -->
-        <div class="bg-secondary h-2/5">
+        <div class="bg-secondary h-4/5">
 
 
             <div class="flex items-center justify-center w-full ">
@@ -76,16 +76,13 @@
 
                 </div>
             </div>
-        </div>
-
-        <!-- Terceira grande DIV da tela -->
-        <div id="destino_div" class="bg-secondary h-2/5">
 
 
+            <!-- Itens da segunda busca -->
             <div class="flex items-center w-full ">
                 <div class="flex flex-col items-center w-full">
 
-                    <label for="countries" class=" mt-4 block font-Lato text-base">Onde você está ?</label>
+                    <label for="countries" class=" mt-10 block font-Lato text-base">Onde você está ?</label>
 
                     <select disabled id="id_destino"
                         class="m-4  w-10/12 text-gray-900 text-sm rounded-lg p-2.5 border-2 bg-secondary">
@@ -93,7 +90,7 @@
                     </select>
 
                     <button disabled onclick="searchRota()" id="botao-1"
-                        class="bg-gray-600 m-4 block w-4/12 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
+                        class="bg-gray-600 block w-4/12 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
 
                         BUSCAR
                         <i class="fas fa-search text-gray-600"></i>
