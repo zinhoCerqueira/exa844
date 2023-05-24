@@ -92,7 +92,6 @@ function searchRota() {
         local_saida: document.getElementById("my_id").value,
         local_chegada: document.getElementById("id_destino").value
     };
-    
 
     time_Spinner();
 
@@ -101,3 +100,73 @@ function searchRota() {
     window.location.href = 'rotas.html';
 
 }
+
+function rotaImg1() {
+
+    document.getElementById("my_id").value = "Feira De Santana, BA";
+    document.getElementById("id_destino").value = "Salvador, BA";
+
+    const data = {
+        local_saida: "Feira De Santana, BA",
+        local_chegada: "Salvador, BA"
+    };
+
+
+    time_Spinner();
+
+    var dadosJSON = JSON.stringify(data);
+    sessionStorage.setItem('local_data', dadosJSON);
+    window.location.href = 'rotas.html';
+
+}
+
+function rotaImg1() {
+    const data = {
+        local_saida: "Feira De Santana, BA",
+        local_chegada: "Salvador, BA"
+    };
+
+
+    time_Spinner();
+
+    var dadosJSON = JSON.stringify(data);
+    sessionStorage.setItem('local_data', dadosJSON);
+    window.location.href = 'rotas.html';
+
+}
+
+function rotaImg2() {
+
+    const data = {
+        local_saida: "Salvador, BA",
+        local_chegada: "Lencois, BA"
+    };
+
+
+    time_Spinner();
+
+    var dadosJSON = JSON.stringify(data);
+    sessionStorage.setItem('local_data', dadosJSON);
+    window.location.href = 'rotas.html';
+
+}
+
+function rotaImg3() {
+
+    document.getElementById("my_id").value = "Feira De Santana, BA";
+    document.getElementById("id_destino").value = "Salvador, BA";
+
+    const data = {
+        local_saida: "Euclides Da Cunha, BA",
+        local_chegada: "Juazeiro, BA"
+    };
+
+
+    time_Spinner();
+
+    var dadosJSON = JSON.stringify(data);
+    sessionStorage.setItem('local_data', dadosJSON);
+    window.location.href = 'rotas.html';
+
+}
+

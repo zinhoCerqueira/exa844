@@ -4,9 +4,6 @@ function search_rotas() {
     var dadosJSON = sessionStorage.getItem('local_data');
     var dados = JSON.parse(dadosJSON);
 
-    console.log("OI");
-    console.log(dados);
-
     const options = {
         method: 'POST',
         headers: {
@@ -20,7 +17,7 @@ function search_rotas() {
     fetch(url, options)
         .then(response => response.json())
         .then(data => {
-
+            console.log(data);
             for (const key in data) {
 
                 console.log(data[key]['chegada']);
@@ -28,11 +25,11 @@ function search_rotas() {
                 // Criação do elemento <div> com as classes "mt-4" e "flex"
                 var divElement = document.createElement("div");
                 divElement.classList.add("m-4", "bg-cover", "overflow-hidden",
-                    "border", "rounded-md", "shadow-lg");
+                    "border", "rounded-md", "shadow-lx");
 
                 // Criação do primeiro <div> interno
                 var div1 = document.createElement("div");
-                div1.classList.add("w-1/2", "m-4" , "border-r", "border-gray-300");
+                div1.classList.add("w-2/3", "m-4", "border-r", "border-gray-300");
 
                 // Criação dos parágrafos e dos elementos <span> dentro do primeiro <div>
                 var p1 = document.createElement("p");
@@ -70,7 +67,7 @@ function search_rotas() {
 
                 // Criação do segundo <div> interno
                 var div2 = document.createElement("div");
-                div2.classList.add("w-1/2", "m-4");
+                div2.classList.add("w-1/3", "m-4");
 
                 // Criação dos parágrafos e dos elementos <span> dentro do segundo <div>
                 var p5 = document.createElement("p");
@@ -135,4 +132,8 @@ function search_rotas() {
             console.error('Erro:', error);
         });
 
+}
+
+function rotaImg(){
+    window.location.href = 'index.html';
 }
