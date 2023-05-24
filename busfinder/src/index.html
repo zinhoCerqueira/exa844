@@ -20,7 +20,7 @@
         <img src="arq/loading.gif" alt="Loading" />
     </div>
 
-    <div class="w-screen h-screen font-roboto">
+    <div class="w-full h-screen font-roboto bg-secondary">
 
         <!-- Primeira barra de itens -->
         <div class=" flex bg-gradient-to-r from-tertiary to-quaternary w-full h-14">
@@ -36,10 +36,12 @@
             </div>
 
             <div class="flex h-full w-1/6 justify-center items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-secondary">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 text-secondary">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                 </svg>
-                  
+
             </div>
         </div>
 
@@ -54,16 +56,17 @@
         </div>
 
         <!-- Segunda Grande Div da tela -->
-        <div class="bg-secondary h-4/5">
+        <div class="bg-secondary">
 
 
             <div class="flex items-center justify-center w-full ">
                 <div class="flex flex-col items-center w-full">
 
-                    <label for="countries" class=" mt-20 block text-gray-900 font-Lato text-base">Onde você está ?</label>
+                    <label for="countries" class=" mt-20 block text-gray-900 font-Lato text-base">Onde você está
+                        ?</label>
 
                     <select id="my_id"
-                        class=" m-4 w-10/12 text-gray-900 text-sm rounded-lg p-2.5 border-gradient-to-r border-2 border-tertiary bg-secondary">
+                        class=" m-4 w-10/12 text-gray-900 text-sm rounded-lg p-2.5 border-gradient-to-r border-2 border-tertiary bg-white">
                         <option selected> Sua cidade</option>
                     </select>
 
@@ -85,19 +88,154 @@
                     <label for="countries" class=" mt-10 block font-Lato text-base">Para onde você quer ir ?</label>
 
                     <select disabled id="id_destino"
-                        class="m-4  w-10/12 text-gray-900 text-sm rounded-lg p-2.5 border-2 bg-secondary">
+                        class="m-4  w-10/12 text-gray-900 text-sm rounded-lg p-2.5 border-2 bg-white">
                         <option selected> Sua cidade</option>
                     </select>
 
                     <button disabled onclick="searchRota()" id="botao-1"
                         class="bg-gray-600 block w-4/12 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
-
                         BUSCAR
                         <i class="fas fa-search text-gray-600"></i>
                     </button>
 
                 </div>
             </div>
+
+            <!-- Img 1-->
+            <div class="mt-6 mb-3 flex flex-col items-center ">
+                <div class=" w-11/12 rounded-md flex flex-col items-center shadow-xl shadow-orange-300 border-gray-300">
+                    <div>
+                        <img src="arq/salvador.jpg" class="w-full rounded-t-md">
+                    </div>
+                    <div class="flex border h-24 w-full p-2 bg-orange-200 rounded-b-md">
+                        <div class="flex items-center w-3/5">
+
+                            <!-- Local de origem echegada da viagem -->
+                            <div class="m-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-6 h-6">
+                                    <path fill-rule="evenodd"
+                                        d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="font-Lato">
+                                <p class="text-zinc-600">Feira de Santana</p>
+                                <p class="font-bold">Salvador</p>
+                            </div>
+
+                        </div>
+
+                        <!-- Div central de dados sobre a propaganda, div-2 -->
+                        <div class="flex items-center p-2">
+                            <div class="flex  flex-col items-center">
+                                <!-- Preço -->
+                                <div class="flex items-center w-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="w-6 h-6 m-1">
+                                        <path
+                                            d="M10.464 8.746c.227-.18.497-.311.786-.394v2.795a2.252 2.252 0 01-.786-.393c-.394-.313-.546-.681-.546-1.004 0-.323.152-.691.546-1.004zM12.75 15.662v-2.824c.347.085.664.228.921.421.427.32.579.686.579.991 0 .305-.152.671-.579.991a2.534 2.534 0 01-.921.42z" />
+                                        <path fill-rule="evenodd"
+                                            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.35-1.112 2.178 0 .829.4 1.612 1.113 2.178.502.4 1.102.647 1.719.756v2.978a2.536 2.536 0 01-.921-.421l-.879-.66a.75.75 0 00-.9 1.2l.879.66c.533.4 1.169.645 1.821.75V18a.75.75 0 001.5 0v-.81a4.124 4.124 0 001.821-.749c.745-.559 1.179-1.344 1.179-2.191 0-.847-.434-1.632-1.179-2.191a4.122 4.122 0 00-1.821-.75V8.354c.29.082.559.213.786.393l.415.33a.75.75 0 00.933-1.175l-.415-.33a3.836 3.836 0 00-1.719-.755V6z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                    <p class="font-Lato">a partir de </p>
+
+                                </div>
+
+                                <div class="flex justify-start w-full">
+                                    <p class="font-semibold"> R$ </p>
+                                    <p class="font-pacifico text-3xl">33,13 </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- Img 2-->
+            <div class="mt-6 mb-3 flex flex-col items-center ">
+                <div class=" w-11/12 rounded-md flex flex-col items-center shadow-xl shadow-yellow-300 border-gray-300">
+                    <div>
+                        <img src="arq/Lencois-Bahia.jpg" class="w-full rounded-t-md">
+                    </div>
+                    <div class="flex border h-24 w-full p-2 bg-yellow-200 rounded-b-md">
+                        <div class="flex items-center w-3/5">
+
+                            <!-- Local de origem echegada da viagem -->
+                            <div class="m-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-6 h-6">
+                                    <path fill-rule="evenodd"
+                                        d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="font-Lato">
+                                <p class="text-zinc-600">Salvador</p>
+                                <p class="font-bold">Lençois</p>
+                            </div>
+
+                        </div>
+
+                        <!-- Div central de dados sobre a propaganda, div-2 -->
+                        <div class="flex items-center p-2">
+                            <div class="flex  flex-col items-center">
+                                <!-- Preço -->
+                                <div class="flex items-center w-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="w-6 h-6 m-1">
+                                        <path
+                                            d="M10.464 8.746c.227-.18.497-.311.786-.394v2.795a2.252 2.252 0 01-.786-.393c-.394-.313-.546-.681-.546-1.004 0-.323.152-.691.546-1.004zM12.75 15.662v-2.824c.347.085.664.228.921.421.427.32.579.686.579.991 0 .305-.152.671-.579.991a2.534 2.534 0 01-.921.42z" />
+                                        <path fill-rule="evenodd"
+                                            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.35-1.112 2.178 0 .829.4 1.612 1.113 2.178.502.4 1.102.647 1.719.756v2.978a2.536 2.536 0 01-.921-.421l-.879-.66a.75.75 0 00-.9 1.2l.879.66c.533.4 1.169.645 1.821.75V18a.75.75 0 001.5 0v-.81a4.124 4.124 0 001.821-.749c.745-.559 1.179-1.344 1.179-2.191 0-.847-.434-1.632-1.179-2.191a4.122 4.122 0 00-1.821-.75V8.354c.29.082.559.213.786.393l.415.33a.75.75 0 00.933-1.175l-.415-.33a3.836 3.836 0 00-1.719-.755V6z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                    <p class="font-Lato">a partir de </p>
+
+                                </div>
+
+                                <div class="flex justify-start w-full">
+                                    <p class="font-semibold"> R$ </p>
+                                    <p class="font-pacifico text-3xl">113,78</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            
+
+
         </div>
 
     </div>

@@ -22,10 +22,6 @@ function search_rotas() {
         .then(data => {
 
             for (const key in data) {
-                // const option = document.createElement('option');
-                // option.value = data[key];
-                // option.text = data[key];
-                // select.appendChild(option);
 
                 console.log(data[key]['chegada']);
 
